@@ -57,7 +57,22 @@ public class XmlActivity extends AppCompatActivity implements View.OnClickListen
                 }
                 break;
             case R.id.main_dom:
-                Toast.makeText(this, "dom解析器", Toast.LENGTH_SHORT).show();
+                try {
+                    InputStream inputStream = getAssets().open("books.xml");
+                    DomBookParser domBookParser = new DomBookParser();
+                    List<Book> books = domBookParser.parse(inputStream);
+                    for (Book book : books){
+                        Log.e("DomParser",book.toString());
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ParserConfigurationException e) {
+                    e.printStackTrace();
+                } catch (SAXException e) {
+                    e.printStackTrace();
+                }
+
+
                 break;
             case R.id.main_pull:
                 Toast.makeText(this, "pull解析器", Toast.LENGTH_SHORT).show();
