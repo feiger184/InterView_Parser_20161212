@@ -11,6 +11,7 @@ import com.fuicuiedu.idedemo.interview_parser_20161212.R;
 import com.fuicuiedu.idedemo.interview_parser_20161212.entity.Book;
 
 import org.xml.sax.SAXException;
+import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -75,7 +76,18 @@ public class XmlActivity extends AppCompatActivity implements View.OnClickListen
 
                 break;
             case R.id.main_pull:
-                Toast.makeText(this, "pull解析器", Toast.LENGTH_SHORT).show();
+                try {
+                    InputStream inputStream = getAssets().open("books.xml");
+                    PullBookParser pullBookParser = new PullBookParser();
+                    List<Book> books =  pullBookParser.parse(inputStream);
+                    for (Book book : books){
+                        Log.e("PullParser",book.toString());
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (XmlPullParserException e) {
+                    e.printStackTrace();
+                }
                 break;
         }
     }
