@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".xml.XmlActivity" />
-        <activity android:name=".json.jsonActivity"></activity>
+        <activity android:name=".json.JsonActivity"></activity>
     </application>
 
 </manifest>

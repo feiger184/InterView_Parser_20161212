@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.fuicuiedu.idedemo.interview_parser_20161212.json.JsonActivity;
 import com.fuicuiedu.idedemo.interview_parser_20161212.xml.XmlActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -34,7 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.main_json:
-                Toast.makeText(this, "json解析待实现", Toast.LENGTH_SHORT).show();
+                Intent intent1 = new Intent(getApplicationContext(), JsonActivity.class);
+                startActivity(intent1);
                 break;
         }
     }
