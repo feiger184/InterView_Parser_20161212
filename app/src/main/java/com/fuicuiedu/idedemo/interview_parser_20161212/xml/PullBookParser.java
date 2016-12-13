@@ -40,14 +40,13 @@ public class PullBookParser {
                     if (parser.getName().equals("book")){
                         book = new Book();
                     } else if (parser.getName().equals("id")) {
-                        //判断有没有下一个
-                        eventType = parser.next();
+                        parser.next();
                         book.setId(Integer.parseInt(parser.getText()));
                     } else if (parser.getName().equals("name")){
-                        eventType = parser.next();
+                        parser.next();
                         book.setName(parser.getText());
                     } else if (parser.getName().equals("price")){
-                        eventType = parser.next();
+                        parser.next();
                         book.setPrice(Float.parseFloat(parser.getText()));
                     }
                     break;
